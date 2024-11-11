@@ -59,13 +59,13 @@ def repeat(player_victories, goku_victories, player, goku):
     while True:
         reset_life(player, goku)
 
-        accion = int(input("Do you want to play again?\n"+
+        action = int(input("Do you want to play again?\n"+
                "[1] - Play again\n"+
                "[2] - Check victories\n"+
                "[3] - Stop playing\n"+
                "You choose: "))
     
-        match accion:
+        match action:
             case 1:
                 clear_screen()
                 play(player, goku)
