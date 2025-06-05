@@ -5,7 +5,6 @@ import os
 
 import constants as c
 
-
 def goku_thought():
     result = random.randint(1,3)
 
@@ -21,7 +20,9 @@ def player_choice():
         if 1 <= choice <= 3:
             break
         else:
+            clear_screen()
             print("Not valid. Choose 1, 2 or 3.")
+
     return choice
 
 def reset_life(player, goku):
@@ -59,13 +60,13 @@ def repeat(player_victories, goku_victories, player, goku):
     while True:
         reset_life(player, goku)
 
-        accion = int(input("Do you want to play again?\n"+
+        action = int(input("Do you want to play again?\n"+
                "[1] - Play again\n"+
                "[2] - Check victories\n"+
                "[3] - Stop playing\n"+
                "You choose: "))
     
-        match accion:
+        match action:
             case 1:
                 clear_screen()
                 play(player, goku)
@@ -76,9 +77,11 @@ def repeat(player_victories, goku_victories, player, goku):
                 print("You've chosen to stop playing.")
                 exit()
             case _:
+                clear_screen()
                 print("Not valid. Choose a valid option.")
 
 def play(player, goku):
+    clear_screen()
     player_life = player.get_life()
     goku_life = goku.get_life()
     
@@ -86,6 +89,8 @@ def play(player, goku):
 
         choice = player_choice()
         goku_choice = goku_thought()
+
+        clear_screen()
 
         print("\nGoku has choosen...\n",
               "ROCK!\n" if goku_choice == 1 else "PAPER!\n" if goku_choice == 2 else "SCISSORS!\n")
